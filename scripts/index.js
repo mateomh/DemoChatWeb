@@ -1,19 +1,19 @@
 
 // VCDEV Config
-const config = {
-  appId: 'Chat_cancilleria',
-  apiUrl: 'https://vcdev.brightpattern.com/clientweb/api/v1',
-  tenantUrl: 'vcdev.brightpattern.com',
-  chatPath: 'https://vcdev.brightpattern.com/clientweb/chat-client-v4/'
-};
+// const config = {
+//   appId: 'Chat_cancilleria',
+//   apiUrl: 'https://vcdev.brightpattern.com/clientweb/api/v1',
+//   tenantUrl: 'vcdev.brightpattern.com',
+//   chatPath: 'https://vcdev.brightpattern.com/clientweb/chat-client-v4/'
+// };
 
 // CANCILLERIA Config
-// const config = {
-//   appId: 'BotCancilleria',
-//   apiUrl: 'https://vccancilleria.brightpattern.com/clientweb/api/v1',
-//   tenantUrl: 'vccancilleria.brightpattern.com',
-//   chatPath: 'https://vccancilleria.brightpattern.com/clientweb/chat-client-v4/'
-// }
+const config = {
+  appId: 'BotCancilleria',
+  apiUrl: 'https://vccancilleria.brightpattern.com/clientweb/api/v1',
+  tenantUrl: 'vccancilleria.brightpattern.com',
+  chatPath: 'https://vccancilleria.brightpattern.com/clientweb/chat-client-v4/'
+}
 
 let activeChatID;
 let listener;
@@ -32,10 +32,11 @@ const clickStartChat = () => {
   controlPanel('REQ_CHAT');
 };
 
-const clickSendMessage = () => {
+const clickSendMessage = (event) => {
+  console.log(event);
   const msg = document.getElementById('message');
   const messages = document.getElementById('messages');
-  messages.innerHTML += `<p class="chat-bubble-2">${msg.value}</p>`
+  messages.innerHTML += `<p class="chat-bubble chat-bubble-2">${msg.value}</p>`
   messages.scrollTop = messages.scrollHeight;
   const body = {
     events: [{
@@ -50,7 +51,7 @@ const clickSendMessage = () => {
 
 const clickEndChat = () => {
   const messages = document.getElementById('messages');
-  messages.innerHTML += `<p><b>Session Terminated</b></p>`
+  messages.innerHTML += `<p class="chat-bubble chat-bubble-1"><b>Session Terminated</b></p>`
   const body = {
     events: [{
       event: 'chat_session_end',
@@ -125,7 +126,7 @@ const controlPanel = async (action, body = null) => {
       data = await response.json();
       data = data.events.filter(data_point => data_point.event === 'chat_session_message');
       console.log('data2', data);
-      data.map(message => messages.innerHTML += `<p class="chat-bubble-1">${message.msg}</p>`);
+      data.map(message => messages.innerHTML += `<p class="chat-bubble chat-bubble-1">${message.msg}</p>`);
       messages.scrollTop = messages.scrollHeight;
       // chat_session_message
       break;

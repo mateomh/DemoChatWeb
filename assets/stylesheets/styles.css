@@ -25,12 +25,6 @@ body {
   align-items: center;
   height: 90vh;
   width: 100vw;
-  /* background-image: url("../images/logo1.png");
-  /* background-position: center; */
-  /* background-size: cover;
-  background-size: 80vh; */
-  /* background-repeat: no-repeat; */
-  /* border: 1px solid goldenrod; */
 }
 
 .container::after {
@@ -39,7 +33,6 @@ body {
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
-  /* background-size: 80vh; */
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -47,16 +40,6 @@ body {
   right: 0;
   position: absolute;
   z-index: -1;  
-}
-
-.messages {
-  overflow: auto;
-  width: 50vw;
-  height: 50vh;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-end;
 }
 
 .request-chat {
@@ -67,11 +50,10 @@ body {
   border: none;
   height: 5vh;
   width: 50vw;
-  /* width: 100%; */
   padding: 5vh;
-  color: whitesmoke;
+  color: var(--color2);
   font-weight: bolder;
-  font-size: 3vh;
+  font-size: 4vh;
   border-radius: 50px;
   cursor: pointer;
   outline: none;
@@ -105,29 +87,85 @@ body {
   color: var(--color2);
 }
 
-.chat-messages {
+.messages {
+  overflow-y: auto;
+  /* overflow-y: scroll; */
+  width: 50vw;
+  height: 50vh;
+  /* display: flex; */
+  /* flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end; */
+  /* overflow-y: auto; */
+  /* flex-grow: 1; */
+  /* flex: 1; */
+}
 
+.chat-bubble {
+  font-weight: bolder;
+  font-size: 2vh;
+  padding: 3vh;
+  border-radius: 50px;
+  max-width: 70%;
+  margin: 2vh;
 }
 
 .chat-bubble-1 {
   background-color: var(--color2);
   color: whitesmoke;
-  font-weight: bolder;
+  /* font-weight: bolder;
   font-size: 2vh;
   padding: 3vh;
   border-radius: 50px;
   width: 70%;
+  margin: 2vh; */
+  float: left;
+  clear: both;
 }
 
 .chat-bubble-2 {
   background-color: var(--color1);
-  font-weight: bolder;
+  color: var(--color2);
+  /* font-weight: bolder;
   font-size: 2vh;
   position: relative;
   padding: 3vh;
   border-radius: 50px;
   width: fit-content;
-  align-self: flex-end;
+  align-self: flex-end; */
+  /* margin: 2vh; */
+  float: right;
+  clear: both;
+}
+
+.text-message {
+  display: flex;
+  width: 100%;
+}
+
+.message {
+  background-color: var(--color1);
+  opacity: 0.9;
+  border: 2px solid var(--color2);
+  width: 90%;
+  height: 7vh;
+  border-radius: 1vh 0 0 1vh;
+  outline: none;
+  padding: 2vh;
+  text-align: left;
+  font-size: 3vh;
+  font-weight: bolder;
+  color: var(--color2);
+}
+
+.send {
+  border: none;
+  background-color: var(--color2);
+  color: whitesmoke;
+  font-weight: bolder;
+  padding: 2vh;
+  border-radius: 0 1vh 1vh 0;
+  outline: none;
 }
 
 .hide {

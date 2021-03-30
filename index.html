@@ -23,19 +23,22 @@
   </div>
   <div class="chat hide" id="chat">
     <button class="chat-close" type="button" onclick="clickEndChat()">X</button>
-    <div class="chat-messages">
-      <h2>Test messages from Bright Pattern Agent</h2>
-      <div class="messages" id="messages"></div>
-    </div>
+    <div class="messages" id="messages"></div>
     <div class="text-message">
-      <h2>Insert your text message</h2>
-      <textarea name="message" id="message" cols="30" rows="2"></textarea>
+      <input
+        type="text"
+        name="message"
+        class="message"
+        id="message"
+      >
       <br>
       <button
       type="button"
-      onclick="clickSendMessage()"
+      onclick="clickSendMessage(event)"
+      class="send"
+      id="send"
       >
-      Send Message
+      Send
       </button>
     </div>
     </div>
