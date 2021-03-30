@@ -10,6 +10,7 @@
 // CANCILLERIA Config
 const config = {
   appId: 'BotCancilleria',
+  clientId:'WebChat',
   apiUrl: 'https://vccancilleria.brightpattern.com/clientweb/api/v1',
   tenantUrl: 'vccancilleria.brightpattern.com',
   chatPath: 'https://vccancilleria.brightpattern.com/clientweb/chat-client-v4/'
@@ -58,6 +59,11 @@ const clickEndChat = () => {
     }]
   };
   controlPanel('CHAT_END', body);
+
+  const chatButton = document.getElementById('start-chat');
+  const chat = document.getElementById('chat');
+  chat.classList.add('hide');
+  chatButton.classList.remove('hide');
 };
 
 const callApi = async (url, options) => {
