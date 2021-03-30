@@ -1,0 +1,135 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color1: #94c11f;
+  --color2: #2d2e83;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  width: 100vw;
+  /* background-image: url("../images/logo1.png");
+  /* background-position: center; */
+  /* background-size: cover;
+  background-size: 80vh; */
+  /* background-repeat: no-repeat; */
+  /* border: 1px solid goldenrod; */
+}
+
+.container::after {
+  content: "";
+  background-image: url("../images/logo1.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-size: 80vh; */
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;  
+}
+
+.messages {
+  overflow: auto;
+  width: 50vw;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.request-chat {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color1);
+  border: none;
+  height: 5vh;
+  width: 50vw;
+  /* width: 100%; */
+  padding: 5vh;
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 3vh;
+  border-radius: 50px;
+  cursor: pointer;
+  outline: none;
+}
+
+.request-chat:active {
+  transform: scale(0.95);
+  background-color: var(--color2);
+}
+
+.chat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1vh 1vh 2vh black;
+  border-radius: 10px;
+  padding: 5vh;
+}
+
+.chat-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin-right: 1vw;
+  border: none;
+  background-color: inherit;
+  font-size: 5vh;
+  cursor: pointer;
+  color: var(--color2);
+}
+
+.chat-messages {
+
+}
+
+.chat-bubble-1 {
+  background-color: var(--color2);
+  color: whitesmoke;
+  font-weight: bolder;
+  font-size: 2vh;
+  padding: 3vh;
+  border-radius: 50px;
+  width: 70%;
+}
+
+.chat-bubble-2 {
+  background-color: var(--color1);
+  font-weight: bolder;
+  font-size: 2vh;
+  position: relative;
+  padding: 3vh;
+  border-radius: 50px;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.hide {
+  display: none;
+}

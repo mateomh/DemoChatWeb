@@ -1,3 +1,5 @@
+
+// VCDEV Config
 const config = {
   appId: 'Chat_cancilleria',
   apiUrl: 'https://vcdev.brightpattern.com/clientweb/api/v1',
@@ -5,7 +7,13 @@ const config = {
   chatPath: 'https://vcdev.brightpattern.com/clientweb/chat-client-v4/'
 };
 
-
+// CANCILLERIA Config
+// const config = {
+//   appId: 'BotCancilleria',
+//   apiUrl: 'https://vccancilleria.brightpattern.com/clientweb/api/v1',
+//   tenantUrl: 'vccancilleria.brightpattern.com',
+//   chatPath: 'https://vccancilleria.brightpattern.com/clientweb/chat-client-v4/'
+// }
 
 let activeChatID;
 let listener;
@@ -16,10 +24,18 @@ const chatEventListener = () => {
   }, 5000);
 };
 
+const clickStartChat = () => {
+  const button = document.getElementById('start-chat');
+  const chat = document.getElementById('chat');
+  chat.classList.remove('hide');
+  button.classList.add('hide');
+  controlPanel('REQ_CHAT');
+};
+
 const clickSendMessage = () => {
   const msg = document.getElementById('message');
   const messages = document.getElementById('messages');
-  messages.innerHTML += `<p><b>Me</b>: ${msg.value}</p>`
+  messages.innerHTML += `<p class="chat-bubble-2">${msg.value}</p>`
   messages.scrollTop = messages.scrollHeight;
   const body = {
     events: [{
@@ -109,7 +125,7 @@ const controlPanel = async (action, body = null) => {
       data = await response.json();
       data = data.events.filter(data_point => data_point.event === 'chat_session_message');
       console.log('data2', data);
-      data.map(message => messages.innerHTML += `<p><b>Agent</b>: ${message.msg}</p>`);
+      data.map(message => messages.innerHTML += `<p class="chat-bubble-1">${message.msg}</p>`);
       messages.scrollTop = messages.scrollHeight;
       // chat_session_message
       break;

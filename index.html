@@ -5,34 +5,40 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chat Testing Environment</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="./assets/stylesheets/styles.css">
   <script src="./scripts/index.js"></script>
 </head>
 <body>
-  <div class="control-panel">
-    <!-- <button type="button" onclick="controlPanel('AVAILABLE')">Check availability</button>
-    <button type="button" onclick="controlPanel('PARAMS')">Expected Params</button> -->
-    <button type="button" onclick="controlPanel('REQ_CHAT')">Request Chat with Agent</button>
-    <!-- <button type="button" onclick="controlPanel('ACTIVE_CHAT')">Get Active Chat</button>
-    <button type="button" onclick="controlPanel()">Send Events</button>
-    <button type="button" onclick="controlPanel('HISTORY')">Get Chat History</button>
-    <button type="button" onclick="controlPanel('NEW_EVENTS')">Get New Chat Events</button> -->
-    <button type="button" onclick="clickEndChat()">X</button>
+  <div class="container">
+    <div class="control-panel">
+      <button
+      type="button"
+      onclick="clickStartChat()"
+      id="start-chat"
+      class="request-chat"
+      >
+      Start Chat
+    </button>
+    <!-- <img src="./assets/images/logo1.png" alt=""> -->
   </div>
-  <div class="chat">
-    <h2>Test messages from Bright Pattern Agent</h2>
-    <div class="messages" id="messages"></div>
-  </div>
-  <div class="text-message">
-    <h2>Insert your text message</h2>
-    <textarea name="message" id="message" cols="30" rows="2"></textarea>
-    <br>
-    <button
+  <div class="chat hide" id="chat">
+    <button class="chat-close" type="button" onclick="clickEndChat()">X</button>
+    <div class="chat-messages">
+      <h2>Test messages from Bright Pattern Agent</h2>
+      <div class="messages" id="messages"></div>
+    </div>
+    <div class="text-message">
+      <h2>Insert your text message</h2>
+      <textarea name="message" id="message" cols="30" rows="2"></textarea>
+      <br>
+      <button
       type="button"
       onclick="clickSendMessage()"
-    >
-    Send Message
-    </button>
+      >
+      Send Message
+      </button>
+    </div>
+    </div>
   </div>
 </body>
 </html>
